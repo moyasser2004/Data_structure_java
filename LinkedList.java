@@ -6,25 +6,20 @@
 /**
  *
  * @author Mohamed Yasser
- * @param <T>
  */
-public class LinkedList<T> {
+public class LinkedList {
 
     Node head;
     int length;
 
     public LinkedList() {
         this.head = null;
-        this.length = 0;
-    }
-
-    public boolean isEmpty() {
-        return head == null || length == 0;
+        length = 0;
     }
 
     //  {10}-{10}-null 
-    void insertFirst(T num) {
-        Node<T> newNode = new Node(num);
+    void insertFirst(int num) {
+        Node newNode = new Node(num);
         newNode.next = head;
         head = newNode;
         length++;
@@ -32,10 +27,9 @@ public class LinkedList<T> {
 
     //      |     
     // {5}-{10}-{20}
-    @SuppressWarnings("UnusedAssignment")
-    void insertLast(T num) {
+    void insertLast(int num) {
         if (length != 0) {
-            Node<T> newNode = new Node(num);
+            Node newNode = new Node(num);
             Node temp = head;
 
             while (temp.next != null) {
@@ -53,15 +47,16 @@ public class LinkedList<T> {
     //        | 
     //  {10}-{20} - {40}
     //          {30}  
-    void insertIn(int index, T num) {
+    void insertIn(int index, int num) {
         if (index == 0) {
             insertFirst(num);
         } else if (index == length - 1) {
             insertLast(num);
         } else if (index > length) {
-            System.out.println("Exception on List length");
+            System.out.println("Cant add to List");
         } else {
-            Node<T> newNode = new Node(num);
+
+            Node newNode = new Node(num);
             Node temp = head;
             for (int i = 1; i < index; i++) {
                 temp = temp.next;
@@ -70,7 +65,6 @@ public class LinkedList<T> {
             temp.next = newNode;
             length++;
         }
-
     }
 
     //      |  
@@ -106,16 +100,18 @@ public class LinkedList<T> {
                     pref = pref.next;
                     surf = surf.next;
                 }
-                pref.next = null;    
-                length--;
+                pref.next = null;
+               length--;
             }
         }
     }
 
-    void delete(T num) {
+    
+    void delete(int num) {
         if (num == head.item) {
             deleteFirst();
-        } else {
+        }else {
+            
             Node pref = head;
             Node surf = head.next;
             while (surf.item != num) {
@@ -138,32 +134,62 @@ public class LinkedList<T> {
         }
     }
 
+    
     void pop(int index) {
         if (length - 1 != index) {
             int listIndex = -1;
-            Node<T> temp = head;
+            Node temp = head;
 
             while (temp != null) {
                 listIndex++;
-
                 if (index == listIndex) {
                     delete(temp.item);
                     return;
                 }
                 temp = temp.next;
             }
-            System.out.println("Not found in the List");
+            System.out.println("not in the arr");
         }
     }
 
+    
+    void reverse() {
+        Node pref = null;
+        Node middle = head;
+        Node surf = middle.next;
+
+        while (surf != null) {
+            surf = middle.next;
+            middle.next = pref;
+
+            pref = middle;
+            middle = surf;
+        }
+        head = pref;
+    }
+
+    
     void print() {
-        Node<T> newPrint = head;
+        Node Print = head;
         System.out.print("[");
-        while (newPrint != null) {
-            System.out.print("  " + newPrint.item + " ");
-            newPrint = newPrint.next;
+        while (Print != null) {
+            System.out.print("  " + Print.item + " ");
+            Print = Print.next;
         }
         System.out.print("]");
     }
 
 }
+
+//
+//
+//
+////   void deleteLast(){
+////        Node pref = head;
+////        
+////        while(pref.next.next !=null){
+////            pref=pref.next;
+////        }
+////        
+////       pref.next=null;
+////    }
