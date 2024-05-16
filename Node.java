@@ -1,34 +1,22 @@
-///*
-// * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-// * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
-// */
-//
-///**
-// *
-// * @author Mohamed Yasser
-// */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package xmlfile;
 
-//public class Node{
-//    
-//    int item;
-//    Node next;
-//    
-//    Node(int item){
-//            this.item = item;
-//            this.next = null;
-//    }
-//   
-//}
+/**
+ *
+ * @author Mohamed Yasser
+ * @param <T>
+ */
+public class Node<T> {
 
-public class Node {
-    
-    int item;
+    T item;
     Node next;
-    Node prev;
 
-    public Node(int num) {
-        this.item = num;
+    public Node(T item) {
+        this.item = item;
         this.next = null;
-        this.prev = null;
     }
+
 }
