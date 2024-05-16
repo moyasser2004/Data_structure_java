@@ -3,17 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+
 /**
  *
  * @author Mohamed Yasser
  */
-public class Node<T> {
+class Student {
+    
+    String name;
+    int id;
 
-    T item;
-    Node next;
-
-   public  Node(T item) {
-        this.item = item;
-        this.next = null;
+    public Student(String name, int id) {
+        this.name = name;
+        this.id = id;
     }
+    
+    
 }
